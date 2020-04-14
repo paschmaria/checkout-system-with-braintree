@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@s6yl)gn6(p&rpq5j4y(#8fi8t!2s4u-7e=u8)($&+33e%()0q'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
@@ -143,9 +143,9 @@ CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
 
 # Braintree
 # Braintree settings
-BRAINTREE_MERCHANT_ID = 'svw9rd8h6rp8vfmk'  # Merchant ID
-BRAINTREE_PUBLIC_KEY = '44c67vxy8knpdjgd'   # Public Key
-BRAINTREE_PRIVATE_KEY = 'df265ed0341c793fe7ef2fe1e014a078'  # Private key
+BRAINTREE_MERCHANT_ID = os.environ.get('BRAINTREE_MERCHANT_ID')  # Merchant ID
+BRAINTREE_PUBLIC_KEY = os.environ.get('BRAINTREE_PUBLIC_KEY')   # Public Key
+BRAINTREE_PRIVATE_KEY = os.environ.get('BRAINTREE_PRIVATE_KEY')  # Private key
 BRAINTREE_CONF = braintree.Configuration(
     braintree.Environment.Sandbox,
     BRAINTREE_MERCHANT_ID,
